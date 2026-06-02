@@ -1,0 +1,8 @@
+{
+  "name": "image-capturing-app",
+  "private": true,
+  "workspaces": [
+    "server",
+    "client"
+  ]
+}
