@@ -577,7 +577,7 @@ export function AdminUsersPage() {
           if (!open) setConfirmDelete(null);
         }}
       >
-        <DialogContent className="sm:max-w-[420px]" showCloseButton={false}>
+        <DialogContent className="sm:max-w-105" showCloseButton={false}>
           <DialogHeader>
             <DialogTitle>Delete User</DialogTitle>
             <DialogDescription>
@@ -602,7 +602,7 @@ export function AdminUsersPage() {
           if (!open) closeDialog();
         }}
       >
-        <DialogContent className="sm:max-w-[760px]" showCloseButton={false}>
+        <DialogContent className="sm:max-w-190" showCloseButton={false}>
           <DialogHeader>
             <div className="flex items-start justify-between gap-5">
               <div>

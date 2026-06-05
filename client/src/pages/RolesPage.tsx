@@ -227,7 +227,7 @@ export function RolesPage() {
       {!dialogOpen && error && <div className="status-banner error">{error}</div>}
 
       <Dialog open={dialogOpen} onOpenChange={(open) => { if (!open) closeDialog(); }}>
-        <DialogContent className="sm:max-w-[760px]" showCloseButton={false}>
+        <DialogContent className="sm:max-w-190" showCloseButton={false}>
           <DialogHeader>
             <DialogTitle>Create Role</DialogTitle>
             <DialogDescription>Add a custom role for the organization.</DialogDescription>
