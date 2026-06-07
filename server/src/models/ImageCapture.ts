@@ -30,15 +30,19 @@ const imageCaptureSchema = new Schema(
       type: Number,
       required: true,
     },
-    storagePath: {
-      type: String,
+    // Image bytes stored directly in MongoDB (BSON Binary). `select: false`
+    // keeps the buffer out of normal reads — it is only loaded for the
+    // authenticated download route, never in list queries.
+    data: {
+      type: Buffer,
       required: true,
+      select: false,
     },
   },
   {
     timestamps: { createdAt: true, updatedAt: false },
     versionKey: false,
-    toJSON: jsonOptions(),
+    toJSON: jsonOptions(["data"]),
   },
 );
 

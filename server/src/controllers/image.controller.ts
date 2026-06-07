@@ -3,7 +3,6 @@ import { listImagesQuery } from "../schemas/image.schema.js";
 import {
   getImageForUser,
   listImagesForUser,
-  readImageFile,
   removeImageById,
   storeImageCapture,
 } from "../services/image.service.js";
@@ -45,7 +44,12 @@ export const imageController = {
       req.auth!.userId,
       req.auth!.role,
     );
-    const buffer = await readImageFile(image.storagePath);
+    if (!image.data) {
+      throw new AppError(404, "Image file not found");
+    }
+    const buffer = Buffer.isBuffer(image.data)
+      ? image.data
+      : Buffer.from(image.data as unknown as ArrayBuffer);
 
     res.setHeader("Cache-Control", "no-store");
     res.setHeader("X-Content-Type-Options", "nosniff");
